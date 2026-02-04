@@ -1,0 +1,2 @@
+class PromptNotSetError(Exception):
+    pass
