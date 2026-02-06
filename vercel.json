@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "hamza_cv/hamza_cv/wsgi.py",
+      "src": "hamza_cv/wsgi.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "hamza_cv/hamza_cv/wsgi.py"
+      "dest": "hamza_cv/wsgi.py"
     }
   ]
 }
