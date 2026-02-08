@@ -13,4 +13,11 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hamza_cv.settings')
 
-application = get_wsgi_application()
+# Create the WSGI application, but log full tracebacks to stderr on failure
+try:
+	application = get_wsgi_application()
+except Exception:
+	import sys, traceback
+	tb = traceback.format_exc()
+	print("WSGI startup error:\n" + tb, file=sys.stderr)
+	raise
