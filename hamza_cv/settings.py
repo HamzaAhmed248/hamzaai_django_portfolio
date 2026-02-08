@@ -86,7 +86,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'hamza_cv.wsgi.app'
+WSGI_APPLICATION = 'hamza_cv.wsgi.application'
+
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
