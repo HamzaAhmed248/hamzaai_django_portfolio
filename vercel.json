@@ -1,26 +1,27 @@
 {
   "version": 2,
-  "buildCommand": "pip install -r requirements.txt && python manage.py collectstatic --noinput",
+  "buildCommand": "python manage.py collectstatic --noinput",
   "builds": [
     {
       "src": "hamza_cv/wsgi.py",
       "use": "@vercel/python",
       "config": {
-        "maxLambdaSize": "15mb"
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.11"
       }
     }
   ],
   "routes": [
     {
-      "src": "/static/(.*)",
-      "dest": "/staticfiles/$1"
+      "src": "^/static/(.*)$",
+      "dest": "/staticfiles/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=86400"
+      }
     },
     {
       "src": "/(.*)",
       "dest": "hamza_cv/wsgi.py"
     }
-  ],
-  "env": {
-    "PYTHONUNBUFFERED": "1"
-  }
+  ]
 }
