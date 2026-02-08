@@ -55,6 +55,10 @@ coverage.xml
 *.log
 local_settings.py
 
+# But DO commit the staticfiles directory
+!staticfiles/
+!staticfiles/**
+
 # Flask stuff:
 instance/
 .webassets-cache
