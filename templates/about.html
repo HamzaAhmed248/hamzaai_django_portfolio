@@ -6,15 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea, #764ba2);
             min-height: 100vh;
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            align-items: flex-start; /* FIXED */
+            align-items: flex-start;
             padding: 20px;
+            gap: 20px;
         }
 
         .card {
@@ -24,18 +30,20 @@
             max-width: 500px;
             width: 100%;
             box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-            margin-right: 20px;
         }
 
         h1 {
+            margin-top: 0;
             margin-bottom: 10px;
             color: #333;
+            font-size: 28px;
         }
 
         p {
             color: #555;
             line-height: 1.7;
             margin-bottom: 20px;
+            font-size: 15px;
         }
 
         .btn {
@@ -46,7 +54,9 @@
             text-decoration: none;
             border-radius: 30px;
             transition: 0.3s;
+            margin-bottom: 10px;
             margin-right: 10px;
+            font-size: 14px;
         }
 
         .btn:hover {
@@ -57,7 +67,7 @@
         .chat-sidebar {
             background: #fff;
             width: 300px;
-            max-height: 80vh;
+            height: 200px;
             border-radius: 16px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.3);
             display: flex;
@@ -70,6 +80,8 @@
             color: #fff;
             padding: 15px;
             font-weight: bold;
+            font-size: 14px;
+            text-align: center;
         }
 
         .chat-messages {
@@ -85,6 +97,8 @@
             padding: 8px 12px;
             border-radius: 12px;
             max-width: 80%;
+            word-wrap: break-word;
+            font-size: 14px;
         }
 
         .chat-message.user {
@@ -102,6 +116,7 @@
         .chat-input {
             display: flex;
             border-top: 1px solid #ccc;
+            gap: 0;
         }
 
         .chat-input input {
@@ -109,6 +124,7 @@
             padding: 10px;
             border: none;
             outline: none;
+            font-size: 14px;
         }
 
         .chat-input button {
@@ -118,10 +134,155 @@
             padding: 10px 15px;
             cursor: pointer;
             transition: 0.3s;
+            white-space: nowrap;
         }
 
         .chat-input button:hover {
             background: #5a67d8;
+        }
+
+        /* Desktop Styles (1024px and above) */
+        @media (min-width: 1024px) {
+            body {
+                flex-wrap: nowrap;
+                gap: 20px;
+            }
+
+            .card {
+                flex: 0 0 auto;
+            }
+
+            .chat-sidebar {
+                flex: 0 0 300px;
+            }
+        }
+
+        /* Tablet Styles (768px to 1023px) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            body {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .card {
+                max-width: 100%;
+            }
+
+            .chat-sidebar {
+                width: 100%;
+                max-width: 500px;
+            }
+        }
+
+        /* Mobile Styles (480px to 767px) */
+        @media (min-width: 480px) and (max-width: 767px) {
+            body {
+                padding: 15px;
+                gap: 15px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                max-width: 100%;
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .btn {
+                display: block;
+                width: 100%;
+                text-align: center;
+                margin-right: 0;
+                padding: 12px 20px;
+            }
+
+            .chat-sidebar {
+                width: 100%;
+                max-width: 100%;
+                height: 180px;
+            }
+        }
+
+        /* Small Mobile Styles (below 480px) */
+        @media (max-width: 479px) {
+            body {
+                padding: 10px;
+                gap: 10px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                max-width: 100%;
+                width: 100%;
+                padding: 20px;
+                border-radius: 12px;
+            }
+
+            h1 {
+                font-size: 20px;
+                margin-bottom: 12px;
+            }
+
+            p {
+                font-size: 13px;
+                margin-bottom: 12px;
+            }
+
+            .btn {
+                display: block;
+                width: 100%;
+                padding: 10px 15px;
+                font-size: 13px;
+                text-align: center;
+                margin-right: 0;
+                margin-bottom: 8px;
+            }
+
+            .chat-sidebar {
+                width: 100%;
+                max-width: 100%;
+                height: 160px;
+                border-radius: 12px;
+            }
+
+            .chat-header {
+                font-size: 12px;
+                padding: 10px;
+            }
+
+            .chat-messages {
+                padding: 10px;
+            }
+
+            .chat-message {
+                font-size: 12px;
+                padding: 6px 8px;
+            }
+
+            .chat-input {
+                flex-direction: column;
+            }
+
+            .chat-input input {
+                padding: 8px;
+                border-bottom: 1px solid #ccc;
+                font-size: 14px;
+            }
+
+            .chat-input button {
+                width: 100%;
+                padding: 10px;
+                font-size: 13px;
+            }
         }
     </style>
 </head>

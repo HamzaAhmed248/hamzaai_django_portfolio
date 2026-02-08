@@ -43,4 +43,7 @@ except Exception as e:
     print(f"Error configuring WhiteNoise: {e}", file=sys.stderr)
     app = django_app
 
+# Expose application for WSGI servers
+application = app
+
 
