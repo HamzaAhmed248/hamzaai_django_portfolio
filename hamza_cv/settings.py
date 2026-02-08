@@ -36,7 +36,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'hamzaai.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
 #ALLOWED_HOSTS = []
 
@@ -83,7 +83,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'hamza_cv.wsgi.application'
+WSGI_APPLICATION = 'hamza_cv.wsgi.app'
 
 
 

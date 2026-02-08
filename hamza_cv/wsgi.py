@@ -15,7 +15,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hamza_cv.settings')
 
 # Create the WSGI application, but log full tracebacks to stderr on failure
 try:
-	application = get_wsgi_application()
+	app = get_wsgi_application()
 except Exception:
 	import sys, traceback
 	tb = traceback.format_exc()
