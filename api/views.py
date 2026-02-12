@@ -44,7 +44,7 @@ def get_chatbot_response(question):
         try:
             prompt = KnowledgeBase.get_prompt()
         except Exception:
-            prompt = "You are a helpful assistant."
+            prompt = "You are a helpful assistant. Answer questions clearly and concisely."
 
         messages = [
             {"role": "system", 
