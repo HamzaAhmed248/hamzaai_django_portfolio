@@ -64,7 +64,7 @@ def get_chatbot_response(question):
         return f"Error: {str(e)}"
 
 
-# ---------- CHAT API ----------
+# ---------- CHAT API -----------
 @api_view(['POST'])
 def chat(request):
     """Receive question, get chatbot response, save conversation, return serialized data"""
