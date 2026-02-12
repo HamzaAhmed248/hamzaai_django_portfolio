@@ -133,6 +133,16 @@
             font-size: 14px;
         }
 
+        .chat-input textarea {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            resize: none;
+            font-family: inherit;
+        }
+
         .chat-input button {
             background: #667eea;
             color: #fff;
@@ -319,7 +329,7 @@
         <div class="chat-header">🤖 Hamza's Assistant (Chatbot)</div>
         <div class="chat-messages" id="chatMessages"></div>
         <div class="chat-input">
-            <input type="text" id="chatInput" placeholder="Answerable for Hamza's provided Info..." onkeydown="if(event.key === 'Enter') { event.preventDefault(); sendMessage(); }">
+            <textarea id="chatInput" placeholder="Try a question... Answerable &#10;for Hamza's provided Info." onkeydown="if(event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); sendMessage(); }"></textarea>
             <button onclick="sendMessage()">Send</button>
         </div>
     </div>
